@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Share Your Feedback | Feedback Portal</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Submit your feedback instantly. Our secure feedback system notifies the administrator in real-time.">
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Styling Sheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="glow-bg">
+    <div class="glow-sphere sphere-1"></div>
+    <div class="glow-sphere sphere-2"></div>
+  </div>
+
+  <main class="app-container">
+    <div class="feedback-card" id="feedback-card">
+      
+      <!-- Header -->
+      <header class="card-header">
+        <div class="logo-wrapper">
+          <div class="logo-icon">
+            <i class="fa-solid fa-paper-plane"></i>
+          </div>
+        </div>
+        <h1 id="app-title">Send Feedback</h1>
+        <p class="subtitle" id="app-subtitle">We would love to hear your thoughts, suggestions, or concerns.</p>
+      </header>
+
+      <!-- Feedback Form -->
+      <form id="feedback-form" novalidate>
+        
+        <!-- Input: Name -->
+        <div class="input-group">
+          <label for="name" class="input-label">Full Name</label>
+          <div class="input-wrapper">
+            <i class="fa-regular fa-user field-icon"></i>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              placeholder="e.g. John Doe" 
+              required 
+              autocomplete="name"
+            >
+          </div>
+          <span class="error-msg" id="name-error">Please enter your name.</span>
+        </div>
+
+        <!-- Input: Email -->
+        <div class="input-group">
+          <label for="email" class="input-label">Email Address</label>
+          <div class="input-wrapper">
+            <i class="fa-regular fa-envelope field-icon"></i>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              placeholder="e.g. john@example.com" 
+              required 
+              autocomplete="email"
+            >
+          </div>
+          <span class="error-msg" id="email-error">Please enter a valid email address.</span>
+        </div>
+
+        <!-- Input: Feedback -->
+        <div class="input-group">
+          <label for="feedback" class="input-label">Your Feedback</label>
+          <div class="input-wrapper textarea-wrapper">
+            <i class="fa-regular fa-message field-icon textarea-icon"></i>
+            <textarea 
+              id="feedback" 
+              name="feedback" 
+              placeholder="Tell us what's on your mind..." 
+              rows="4" 
+              required
+            ></textarea>
+          </div>
+          <span class="error-msg" id="feedback-error">Please write your feedback.</span>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" id="submit-btn" class="submit-btn">
+          <span class="btn-text">Submit Feedback</span>
+          <span class="btn-loader hidden">
+            <i class="fa-solid fa-circle-notch fa-spin"></i> Sending...
+          </span>
+        </button>
+      </form>
+
+      <!-- Success Screen (Hidden by default) -->
+      <div id="success-screen" class="success-screen hidden">
+        <div class="success-icon-wrapper animate-success">
+          <div class="success-icon">
+            <i class="fa-solid fa-check"></i>
+          </div>
+        </div>
+        <h2>Thank You!</h2>
+        <p class="success-desc">Your feedback has been successfully submitted and delivered instantly.</p>
+        
+        <!-- Generated ID Box -->
+        <div class="id-container">
+          <span class="id-label">Submission ID</span>
+          <div class="id-box">
+            <span id="generated-id">FB-XXXXXX</span>
+            <button id="copy-id-btn" class="copy-btn" title="Copy ID">
+              <i class="fa-regular fa-copy"></i>
+            </button>
+          </div>
+          <span id="copy-toast" class="copy-toast">Copied to clipboard!</span>
+        </div>
+
+        <button id="new-feedback-btn" class="reset-btn">
+          <i class="fa-solid fa-plus"></i> Submit Another Feedback
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <p>&copy; 2026 Feedback Portal. Powered by Telegram Bot API.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
