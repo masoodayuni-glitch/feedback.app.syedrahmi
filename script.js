@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     try {
-      const response = await fetch('/api/feedback', {
+      const response = await fetch('https://feedback-app-syedrahmi.onrender.com/api/feedback', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
