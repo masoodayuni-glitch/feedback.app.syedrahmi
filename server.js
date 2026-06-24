@@ -163,3 +163,27 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Server is running on http://localhost:${PORT}`);
 });
+const express = require('express');
+const cors = require('cors');
+const crypto = require('crypto');
+const app = express();
+
+app.use(express.json());
+app.use(cors());
+
+// Feedback route
+app.post('/api/feedback', (req, res) => {
+  const { name, email, feedback } = req.body;
+
+  if (!name || !email || !feedback) {
+    return res.status(400).json({ success: false, error: 'Missing fields' });
+  }
+
+  const generatedId = crypto.randomUUID();
+  console.log('Feedback received:', { name, email, feedback });
+
+  res.json({ success: true, id: generatedId });
+});
+
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
